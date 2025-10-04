@@ -1,0 +1,25 @@
+FROM node:20-alpine
+
+# Define o diretório de trabalho dentro do container
+WORKDIR /app
+
+# Copia arquivos de dependências primeiro para aproveitar cache do Docker
+COPY package*.json ./
+
+# Instala dependências
+RUN npm install
+
+
+# Copia todo o código do backend para dentro do container
+COPY . .
+
+
+# Gera o prisma client
+RUN npx prisma generate
+
+# Expondo porta
+EXPOSE 5000
+
+# Comando para rodar o servidor
+CMD ["npx", "ts-node-dev", "--respawn", "--transpile-only", "src/server.ts"]
+

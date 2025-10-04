@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend-acervo
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    restart: always
+    volumes:
+      - ./backend-acervo:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./acervo-digital-hub
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    restart: always
+
+    volumes:
+      - ./acervo-digital-hub:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

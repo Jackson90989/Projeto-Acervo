@@ -1,0 +1,184 @@
+.container {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+  color: #f0f0f0;
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #00fff7;
+  text-shadow: 0 0 15px #00fff7;
+  margin-bottom: 2rem;
+}
+
+.loading {
+  color: #aaa;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background: #2a2a44;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffea44;
+  border: 1px solid #00ffea33;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+
+  h2 {
+    color: #00fff7;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 6px #00fff7;
+  }
+
+  p {
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px #00fff766;
+  }
+}
+
+.button {
+  display: inline-block;
+  background-color: #00ffea;
+  color: #000;
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 10px #00ffea;
+
+  &:hover {
+    background-color: #00d9c4;
+    transform: scale(1.05);
+  }
+}
+
+.gameThumbnail {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Input de pesquisa */
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid #00ffea66;
+  background-color: #121229;
+  color: #00fff7;
+  box-shadow: 0 0 10px #00ffea55;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: #00ffea99;
+  }
+
+  &:focus {
+    border-color: #00fff7;
+    box-shadow: 0 0 20px #00fff7aa;
+  }
+}
+
+/* Paginação fixa no canto inferior direito */
+.pagination {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1a1a2ecc;
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00fff7aa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  max-width: 90vw;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00fff7 #121229;
+}
+
+.pagination::-webkit-scrollbar {
+  height: 6px;
+}
+
+.pagination::-webkit-scrollbar-thumb {
+  background-color: #00fff7cc;
+  border-radius: 3px;
+}
+
+.pageButton {
+  background-color: #222244;
+  border: 2px solid #00ffea55;
+  color: #00ffea;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 0 8px #00ffea44;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+
+  &:hover:not(:disabled) {
+    background-color: #00ffea22;
+    border-color: #00fff7ee;
+    box-shadow: 0 0 18px #00fff7bb;
+    color: #000;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.pageButtonActive {
+  background-color: #00ffea;
+  border-color: #00fff7;
+  color: #000;
+  cursor: default;
+  box-shadow: 0 0 25px #00fff7cc;
+}
+
+.ellipsis {
+  color: #00ffea;
+  font-weight: 700;
+  padding: 8px 14px;
+  user-select: none;
+}
