@@ -15,16 +15,16 @@ services:
       - app-network
 
   frontend:
-  build:
-    context: ./acervo-digital-hub
-    dockerfile: Dockerfile.prod
-  ports:
-    - "5173:80"
-  restart: always
-  depends_on:
-    - backend
-  networks:
-    - app-network
+    build:
+      context: ./acervo-digital-hub
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:80"
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - app-network
 
 
 networks:
